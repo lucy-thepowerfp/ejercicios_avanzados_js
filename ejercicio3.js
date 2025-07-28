@@ -33,13 +33,16 @@ const users = [
     },
 ];
 
-let volumetotal = 0;
-let soundstotal = 0;
+let totalsaves = [];
 for (user of users){
     for (sound in user.favoritesSounds){
-        volumetotal += user.favoritesSounds[sound].volume;
-        soundstotal++;
+        if(!totalsaves[sound]){
+            totalsaves[sound] = 1;
+        }else{
+            totalsaves[sound] += 1;
+            
+        } 
     }
 }
 
-console.log (volumetotal / soundstotal);
+console.log (totalsaves);
